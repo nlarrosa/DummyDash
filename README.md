@@ -65,7 +65,7 @@ npm install
 npm run dev
 ```
 
-## Utilizar Api de DuumyJSON
+## Utilizar Api de DumyJSON
 En este ejercicio debemos utilizar la apiRest de dummyJson, para esto debes ir a:
 * [DUMMY JSON](https://dummyjson.com/)
 * Ingresar al Link o boton Read Docs y encontraras todos los servicios necesarios para realizar el proyecto.
