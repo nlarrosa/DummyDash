@@ -20,7 +20,8 @@ import { FormHelperText } from '@mui/material';
 export const LoginPage = () => {
 
    
-    const { state, login } = useContext(AuthContext);
+    // const { state, login } = useContext(AuthContext);
+    const title = 'DashDummy';
     const { formState, onChangeInput } = useForm();
 
 
@@ -36,8 +37,8 @@ export const LoginPage = () => {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography data-testid='titleLogin' component="h1" variant="h5">
+            { title }
           </Typography>
           <Box component="form" onSubmit={handleSubmitLogin} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -95,8 +96,8 @@ export const LoginPage = () => {
           </Box>
 
           <Box marginTop={5} textAlign={'left'}>
-            <Typography variant='body2'>User: kminchelle</Typography>
-            <Typography variant='body2'>Pass: 0lelplR</Typography>
+            <Typography variant='body2' data-testid='login'>User: kminchelle</Typography>
+            <Typography variant='body2' data-testid='login'>Pass: 0lelplR</Typography>
           </Box>
     </>
   )
