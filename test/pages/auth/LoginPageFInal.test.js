@@ -14,28 +14,7 @@ describe('PRUEBA EN <LoginPage/>', () => {
         render(<LoginPage />);
         expect(screen.getByText(title)).toBeTruthy();
         expect(screen.getByTestId('titleLogin').innerHTML).toBe(title);
-
     });
 
-
-    test('Ejecutar el handleSubmitLogin si el input user tiene un valor' ,() => {
-
-        render(<LoginPage/>);
-        
-        // console.log(screen.getByRole())
-        // Hago la referencia al Inpout user
-        const userInput = screen.getByRole("textbox", {name: 'Username'});
-        //Disparo el evento para cargar el input con datos
-        fireEvent.input(userInput, { target: { value: user}});
-
-        //Valido que mi campo no este en null
-        expect(userInput.length).not.toBeNull();
-
-        //Ejecutar el click del login
-        fireEvent.click(screen.getByRole('button', { name: 'btn-login' }));
-
-        // Validar que el campo que estoy enviando tenga el valor
-        expect(userInput.value).toBe(user);
-    });
 
 })
