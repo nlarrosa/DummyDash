@@ -13,6 +13,8 @@ export const useForm = () => {
     const onChangeInput = (event) => {
         const field = event.target.name;
         const value = event.target.value;
+
+        console.log(field, value)
   
         setFormState({
           ...formState,

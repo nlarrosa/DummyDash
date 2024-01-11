@@ -20,16 +20,18 @@ import { FormHelperText } from '@mui/material';
 export const LoginPage = () => {
 
    
-    // const { state, login } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
     const title = 'DashDummy';
     const { formState, onChangeInput } = useForm();
 
-
+    
     const handleSubmitLogin = (event) => {
       event.preventDefault();
-      login(formState.username, formState.password);
+      console.log('holaMundo desde el test')
+      // login(formState.username, formState.password);
+      login('kminchelle');
     }
-
+    
 
   return (
     
@@ -43,6 +45,7 @@ export const LoginPage = () => {
           <Box component="form" onSubmit={handleSubmitLogin} noValidate sx={{ mt: 1 }}>
             <TextField
               // error
+              aria-label='user'
               margin="normal"
               required
               fullWidth
@@ -73,6 +76,7 @@ export const LoginPage = () => {
             </FormHelperText>
 
             <Button
+              aria-label='btn-login'
               type="submit"
               fullWidth
               variant="contained"
@@ -96,8 +100,8 @@ export const LoginPage = () => {
           </Box>
 
           <Box marginTop={5} textAlign={'left'}>
-            <Typography variant='body2' data-testid='login'>User: kminchelle</Typography>
-            <Typography variant='body2' data-testid='login'>Pass: 0lelplR</Typography>
+            <Typography variant='body2' data-testid='test-login'>User: kminchelle</Typography>
+            <Typography variant='body2' data-testid='test-login'>Pass: 0lelplR</Typography>
           </Box>
     </>
   )

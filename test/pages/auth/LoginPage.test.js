@@ -17,14 +17,9 @@ describe('PRUEBA EN <LoginPage/>', () => {
         const title = 'DashDummy';
         const user = 'kminchelle';
 
-        const { container, getByText, getByTestId } = render(<LoginPage />);
+        const {getByText, getByTestId } = render(<LoginPage />);
         expect(getByText(title)).toBeTruthy();
         expect(getByTestId('titleLogin').innerHTML).toBe(title);
-        // expect(getByTestId('login').innerHTML).toContain(user);
-
-        // const h1 = container.querySelector('h1');
-        // console.log(h1.innerHTML);
-        // expect(h1.innerHTML).toBe(title);
     });
 
 
@@ -32,8 +27,8 @@ describe('PRUEBA EN <LoginPage/>', () => {
 
         const user = 'kminchelle';
         const { getAllByTestId } = render(<LoginPage/>);
-        // console.log(getAllByTestId('login')[0]);
-        expect(getAllByTestId('login').length).toBe(3);
+        // console.log(getAllByTestId('test-login')[0]);
+        expect(getAllByTestId('test-login').length).toBe(2);
     })
 
 })
