@@ -2,18 +2,15 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
 import { useForm } from '../../Hooks/useForm';
 import { FormHelperText } from '@mui/material';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export const LoginPage = () => {
     //Instanciando el reducer AuthReducer por medio de su contexto AuthContext
@@ -26,17 +23,19 @@ export const LoginPage = () => {
       if(formState.username!==undefined && formState.password!==undefined)
       login(formState.username, formState.password);
     }
+
   return (
     <>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography data-testid='titleLogin' component="h1" variant="h5">
+            { title }
           </Typography>
           <Box component="form" onSubmit={handleSubmitLogin} noValidate sx={{ mt: 1 }}>
             <TextField
               // error
+              aria-label='user'
               margin="normal"
               required
               fullWidth
@@ -62,6 +61,7 @@ export const LoginPage = () => {
               sx={{ color:'red' }}>
             </FormHelperText>
             <Button
+              aria-label='btn-login'
               type="submit"
               fullWidth
               variant="contained"
@@ -82,8 +82,8 @@ export const LoginPage = () => {
             </Grid>
           </Box>
           <Box marginTop={5} textAlign={'left'}>
-            <Typography variant='body2'>User: kminchelle</Typography>
-            <Typography variant='body2'>Pass: 0lelplR</Typography>
+            <Typography variant='body2' data-testid='test-login'>User: kminchelle</Typography>
+            <Typography variant='body2' data-testid='test-login'>Pass: 0lelplR</Typography>
           </Box>
     </>
   )
