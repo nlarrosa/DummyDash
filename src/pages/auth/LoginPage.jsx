@@ -15,23 +15,18 @@ import { useContext } from 'react';
 import { useForm } from '../../Hooks/useForm';
 import { FormHelperText } from '@mui/material';
 
-
-
 export const LoginPage = () => {
-
-   
+    //Instanciando el reducer AuthReducer por medio de su contexto AuthContext
     const { state, login } = useContext(AuthContext);
+    //Instancia de custom Hook useForm , desesctructura de funcion onChangeInput dentro de hook useForm
     const { formState, onChangeInput } = useForm();
-
-
     const handleSubmitLogin = (event) => {
       event.preventDefault();
+      //Envio datos al Reducer
+      if(formState.username!==undefined && formState.password!==undefined)
       login(formState.username, formState.password);
     }
-
-
   return (
-    
     <>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
@@ -50,8 +45,7 @@ export const LoginPage = () => {
               name="username"
               autoComplete="username"
               autoFocus
-              onChange={onChangeInput}
-            />
+              onChange={onChangeInput}/>
             <TextField
               // error
               margin="normal"
@@ -62,24 +56,18 @@ export const LoginPage = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={onChangeInput}
-            />
-
+              onChange={onChangeInput}/>
             <FormHelperText
               id="component-helper-text"
-              sx={{ color:'red' }}
-            >
+              sx={{ color:'red' }}>
             </FormHelperText>
-
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+              sx={{ mt: 3, mb: 2 }}>
               INGRESAR
             </Button>
-
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -93,7 +81,6 @@ export const LoginPage = () => {
               </Grid>
             </Grid>
           </Box>
-
           <Box marginTop={5} textAlign={'left'}>
             <Typography variant='body2'>User: kminchelle</Typography>
             <Typography variant='body2'>Pass: 0lelplR</Typography>

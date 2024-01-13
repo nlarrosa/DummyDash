@@ -6,6 +6,6 @@ export const PublicRoutes = ({ children, isLogged }) => {
   const path = localStorage.getItem('lastRoute') || '/dashboard'; 
 
   return (!isLogged)
-    ? children
+  ?children
     : <Navigate to={path} />
 }
